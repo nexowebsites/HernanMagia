@@ -181,8 +181,7 @@ const CFG = {
   retrato: '', retratoPos: '50% 22%',   // foto de Hernán para el inicio (si la cara queda cortada, cambiá el segundo valor: 0% = arriba, 50% = centro)
  fotos: [ 
         { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/5B4F0501-EC40-4507-AC1D-F07BFD34BA6E.jpg?raw=true', cap: 'Cartomagia' }, 
-        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/B6C83D24-5D7F-4EE7-B9FE-E484D6AF8091.jpg?raw=true', cap: 'Stand up' }, 
-        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/CA52A806-8547-4A20-97E3-64915D7D256E.jpg?raw=true', cap: 'Fiestas y eventos' } 
+        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/B6C83D24-5D7F-4EE7-B9FE-E484D6AF8091.jpg?raw=true', cap: 'Stand up' },  
     ],   // poné tus 3 fotos con estos nombres
   cartas: [ {v:'A', s:'♠', t:'Magia',    d:'Cartomagia y mentalismo que no vas a poder explicar.'},
             {v:'K', s:'♥', t:'Stand up', d:'Mucho humor para que todos se rían.'},
@@ -198,7 +197,7 @@ $('igUser').textContent = CFG.usuario; $('igBig').textContent = 'Seguime en Inst
 const paso = innerWidth < 761 ? 10 : 12;
 $('fan').innerHTML = ['8','9','10','J','Q','K','A'].map((v, i) =>
   `<div class="pk" style="--i:${i};--r:${(i - 3) * paso}deg;--z:${i * 3}px">${cara(v, '♠')}</div>`).join('') +
-  `<div class="me" style="--pos:${CFG.retratoPos}"><div class="mi"><div><em>♠</em>Tu foto</div><img src="${CFG.retrato}" alt="Hernán Pizarro, mago" onerror="this.remove()"></div><span class="rb">22 años de magia</span></div>`;
+  `<div class="me" style="--pos:${CFG.retratoPos}"><div class="mi"><div><https://github.com/nexowebsites/HernanMagia/blob/main/CA52A806-8547-4A20-97E3-64915D7D256E.jpg?raw=true</div><img src="${CFG.retrato}" alt="Hernán Pizarro, mago" onerror="this.remove()"></div><span class="rb">22 años de magia</span></div>`;
 // fotos
 $('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div><em>♠</em>Tu foto acá</div><img src="${f.src}" alt="${f.cap} - Hernán Pizarro, mago" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
 // cartas para elegir
