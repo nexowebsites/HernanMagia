@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b0614">
 <meta name="google-site-verification" content="g5CY5VpeJRJnF1_6JyOkbtLkdNiP0JkrKrx6UPcD9oY" />
-<title>Hernán Pizarro · Mago | Cartomagia, Mentalismo y Shows</title>
+<title>Hernán Magia · Mago | Cartomagia, Mentalismo y Shows</title>
 <meta name="description" content="Hernán Pizarro, mago hace 22 años. Shows de magia para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo para tu fiesta o evento.">
 <meta name="keywords" content="mago, magia, show de magia, mago para fiestas, mago para eventos, mago para chicos, mago para adultos, cartomagia, mentalismo, juegos de salón, stand up, ilusionista, Hernán Pizarro, hernan.magia">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website"><meta property="og:locale" content="es_AR">
-<meta property="og:title" content="Hernán Pizarro · Mago | Cartomagia, Mentalismo y Shows">
+<meta property="og:title" content="Hernán Magia · Mago | Cartomagia, Mentalismo y Shows">
 <meta property="og:description" content="Mago hace 22 años. Shows para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://nexowebsites.github.io/HernanMagia/">
 <meta property="og:url" content="https://nexowebsites.github.io/HernanMagia/"> 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Hernán Pizarro", "jobTitle": "Mago", "description": "Mago hace 22 años. Shows para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo.", "knowsAbout": ["Magia", "Cartomagia", "Mentalismo", "Juegos de salón", "Stand up"], "sameAs": ["https://www.instagram.com/hernan.magia/"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Hernán Magia", "jobTitle": "Mago", "description": "Mago hace 22 años. Shows para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo.", "knowsAbout": ["Magia", "Cartomagia", "Mentalismo", "Juegos de salón", "Stand up"], "sameAs": ["https://www.instagram.com/hernan.magia/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -121,13 +121,13 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
 </head>
 <body>
 <canvas id="fx"></canvas>
-<header><a class="logo cin" href="#inicio">♠ Hernán Pizarro</a><a class="btn sm" data-ig>Instagram</a></header>
+<header><a class="logo cin" href="#inicio">♠ Hernán Magia</a><a class="btn sm" data-ig>Instagram</a></header>
 
 <main>
 <section class="hero" id="inicio">
   <div class="ht">
     <p class="kick">Mago · Cartomagia · Mentalismo</p>
-    <h1 class="gold">Hernán<br>Pizarro</h1>
+    <h1 class="gold">Hernán<br>Magia</h1>
     <p class="lead" id="lema">Quiero que disfrutes la magia como lo hago yo.</p>
     <div class="btns"><a class="btn" href="#cartas">Elegí una carta</a><a class="btn ghost" data-ig id="igUser"></a></div>
   </div>
@@ -167,7 +167,7 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
   <a class="btn big rv" data-ig id="igBig"></a>
 </section>
 </main>
-<footer>© Hernán Pizarro · Magia</footer>
+<footer>© Hernán Magia · Magia</footer>
 
 <script>
 /* ===== EDITÁ ESTO: textos, fotos y enlace ===== */
@@ -190,7 +190,7 @@ $('fan').innerHTML = ['8','9','10','J','Q','K','A'].map((v, i) =>
   `<div class="pk" style="--i:${i};--r:${(i - 3) * paso}deg;--z:${i * 3}px">${cara(v, '♠')}</div>`
 ).join('');
 // fotos
-$('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div><em>♠</em>Tu foto acá</div><img src="${f.src}" alt="${f.cap} - Hernán Pizarro, mago" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
+$('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div><em>♠</em>Tu foto acá</div><img src="${f.src}" alt="${f.cap} - Hernán Magia, mago" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
 // cartas para elegir
 $('deck').innerHTML = CFG.cartas.map((c, i) => `<div class="fl rv ${rojo(c.s)}" style="--d:${i * .15}s" tabindex="0" role="button" aria-label="Carta ${c.t}"><div class="in"><div class="bk"><span>♠</span></div><div class="fr">${cara(c.v, c.s)}<h3>${c.t}</h3><p>${c.d}</p></div></div></div>`).join('');
 
