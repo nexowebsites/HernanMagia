@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Reemplazá por la dirección final de la página:
-Sitemap: https://nexowebsites.github.io/HernanMagia//sitemap.xml
+Sitemap: https://nexowebsites.github.io/HernanMagia/sitemap.xml
