@@ -175,37 +175,43 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
 <footer>© Hernán Pizarro · Magia</footer>
 
 <script>
-/* ===== EDITÁ ESTO: textos, fotos y enlace ===== */
+/* ===== CONFIGURACIÓN DE FOTOS ===== */
 const CFG = {
   ig: 'https://www.instagram.com/hernan.magia/', usuario: '@hernan.magia',
-  retrato: 'https://github.com/nexowebsites/HernanMagia/blob/main/CA52A806-8547-4A20-97E3-64915D7D256E.jpg?raw=true', retratoPos: '50% 22%', 
+  
+  /* FOTO PRINCIPAL (ARRIBA) - Fiestas y eventos */
+  retrato: 'https://github.com/nexowebsites/HernanMagia/blob/main/CA52A806-8547-4A20-97E3-64915D7D256E.jpg?raw=true', 
+  retratoPos: '50% 22%', 
+  
+  /* LAS 2 FOTOS DE LA GALERÍA (ABAJO) - Cartomagia y Stand up */
   fotos: [ 
-        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/B6C83D24-5D7F-4EE7-B9FE-E484D6AF8091.jpg?raw=true', cap: 'Cartomagia' }, 
-        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/5B4F0501-EC40-4507-AC1D-F07BFD34BA6E.jpg?raw=true', cap: 'Stand up' }
+        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/5B4F0501-EC40-4507-AC1D-F07BFD34BA6E.jpg?raw=true', cap: 'Cartomagia' }, 
+        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/B6C83D24-5D7F-4EE7-B9FE-E484D6AF8091.jpg?raw=true', cap: 'Stand up' }
   ],
   cartas: [ {v:'A', s:'♠', t:'Magia',     d:'Cartomagia y mentalismo que no vas a poder explicar.'},
             {v:'K', s:'♥', t:'Stand up', d:'Mucho humor para que todos se rían.'},
             {v:'Q', s:'♦', t:'Eventos',  d:'Una fiesta única e inolvidable, con juegos de salón.'} ]
 };
+
 const $ = id => document.getElementById(id);
 const rojo = s => (s === '♥' || s === '♦') ? 'red' : '';
 const cara = (v, s) => `<i>${v}<br>${s}</i><b>${s}</b><i class="bt">${v}<br>${s}</i>`;
 document.querySelectorAll('[data-ig]').forEach(a => { a.href = CFG.ig; a.target = '_blank'; a.rel = 'noopener'; });
 $('igUser').textContent = CFG.usuario; $('igBig').textContent = 'Seguime en Instagram ' + CFG.usuario;
 
-// abanico de cartas (limpio sin texto de "Tu foto")
+// Abanico de cartas (arriba con la foto de Fiestas y eventos y sin texto de "Tu foto")
 const paso = innerWidth < 761 ? 10 : 12;
 $('fan').innerHTML = ['8','9','10','J','Q','K','A'].map((v, i) =>
   `<div class="pk" style="--i:${i};--r:${(i - 3) * paso}deg;--z:${i * 3}px">${cara(v, '♠')}</div>`).join('') +
   `<div class="me" style="--pos:${CFG.retratoPos}"><div class="mi"><div></div><img src="${CFG.retrato}" alt="Hernán Pizarro, mago" onerror="this.remove()"></div><span class="rb">22 años de magia</span></div>`;
 
-// fotos de la galería (ajustado exactamente a tus 2 fotos)
+// Galería de abajo (exactamente 2 fotos: Cartomagia y Stand up)
 $('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div></div><img src="${f.src}" alt="${f.cap} - Hernán Pizarro, mago" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
 
-// cartas para elegir
+// Cartas para elegir
 $('deck').innerHTML = CFG.cartas.map((c, i) => `<div class="fl rv ${rojo(c.s)}" style="--d:${i * .15}s" tabindex="0" role="button" aria-label="Carta ${c.t}"><div class="in"><div class="bk"><span>♠</span></div><div class="fr">${cara(c.v, c.s)}<h3>${c.t}</h3><p>${c.d}</p></div></div></div>`).join('');
 
-/* ===== efectos: estrellas, símbolos y chispas ===== */
+/* ===== efectos y animaciones ===== */
 const cv = $('fx'), cx = cv.getContext('2d'), stars = [], sp = [];
 let W, H, D;
 const rs = () => { D = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * D; cv.height = H * D; cx.setTransform(D, 0, 0, D, 0, 0); };
@@ -224,23 +230,23 @@ function dibujar(ms) {
   cx.globalAlpha = 1; mover();
   if (!reducido) requestAnimationFrame(dibujar);
 }
-/* ===== paralaje 3D del abanico y tilt de las fotos ===== */
+
 let px = 0, py = 0, sx = 0, sy = 0;
 const fan = $('fan');
 function mover() { sx += (px - sx) * .08; sy += (py - sy) * .08; fan.style.transform = `rotateY(${sx * 28}deg) rotateX(${-sy * 18 + Math.min(scrollY * .03, 16)}deg)`; }
 addEventListener('pointermove', e => { px = e.clientX / innerWidth - .5; py = e.clientY / innerHeight - .5; if (!reducido) chispa(e.clientX, e.clientY, e.pointerType === 'touch' ? 1 : 2, .9); }, { passive: true });
-addEventListener('deviceorientation', e => { if (e.gamma != null) { px = Math.max(-.5, Math.min(.5, e.gamma / 40)); py = Math.max(-.5, Math.min(.5, (e.beta - 45) / 60)); } });
+addEventListener('deviceorientation', e => { if (e.gamma != null) { px = Math.max(-.5, Math.min(.5, e.gamma / 40)); py = Math.max(-.5, Math.min(-.5, (e.beta - 45) / 60)); } });
 document.querySelectorAll('.tilt').forEach(el => {
   el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; el.style.transform = `perspective(700px) rotateY(${x * 24}deg) rotateX(${-y * 24}deg) translateZ(16px)`; el.style.setProperty('--mx', (x + .5) * 100 + '%'); el.style.setProperty('--my', (y + .5) * 100 + '%'); });
   el.addEventListener('pointerleave', () => { el.style.transform = ''; });
 });
-/* ===== girar cartas con estallido de chispas ===== */
+
 document.querySelectorAll('.fl').forEach(c => {
   const girar = () => { c.classList.toggle('on'); const r = c.getBoundingClientRect(); chispa(r.left + r.width / 2, r.top + r.height / 2, 36, 3.4); };
   c.addEventListener('click', girar);
   c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); girar(); } });
 });
-/* ===== aparición suave al deslizar ===== */
+
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); } }), { threshold: .15 }) : null;
 document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('v'));
 const an = $('anios');
