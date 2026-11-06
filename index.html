@@ -75,7 +75,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-conte
 .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:38px}
 .chips span{padding:7px 16px;border-radius:30px;border:1px solid rgba(232,193,90,.5);color:var(--oro);font-size:13px;background:rgba(232,193,90,.07)}
 
-.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;perspective:1000px}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:700px;margin:0 auto;perspective:1000px}
 .tilt{transition:transform .2s ease-out;touch-action:pan-y;transform-style:preserve-3d}
 .ph{position:relative;aspect-ratio:4/5;border-radius:20px;padding:8px;background:linear-gradient(145deg,var(--oro2),var(--oro) 40%,#9b7420);box-shadow:0 22px 44px rgba(0,0,0,.55)}
 .ph::after{content:"";position:absolute;inset:0;border-radius:20px;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.4),transparent 48%);mix-blend-mode:overlay;pointer-events:none}
@@ -178,12 +178,12 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
 /* ===== EDITÁ ESTO: textos, fotos y enlace ===== */
 const CFG = {
   ig: 'https://www.instagram.com/hernan.magia/', usuario: '@hernan.magia',
-  retrato: '', retratoPos: '50% 22%',   // foto de Hernán para el inicio (si la cara queda cortada, cambiá el segundo valor: 0% = arriba, 50% = centro)
- fotos: [ 
+  retrato: '', retratoPos: '50% 22%', 
+  fotos: [ 
         { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/5B4F0501-EC40-4507-AC1D-F07BFD34BA6E.jpg?raw=true', cap: 'Cartomagia' }, 
-        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/B6C83D24-5D7F-4EE7-B9FE-E484D6AF8091.jpg?raw=true', cap: 'Stand up' },  
-    ],   // poné tus 3 fotos con estos nombres
-  cartas: [ {v:'A', s:'♠', t:'Magia',    d:'Cartomagia y mentalismo que no vas a poder explicar.'},
+        { src: 'https://github.com/nexowebsites/HernanMagia/blob/main/B6C83D24-5D7F-4EE7-B9FE-E484D6AF8091.jpg?raw=true', cap: 'Stand up' }
+  ],
+  cartas: [ {v:'A', s:'♠', t:'Magia',     d:'Cartomagia y mentalismo que no vas a poder explicar.'},
             {v:'K', s:'♥', t:'Stand up', d:'Mucho humor para que todos se rían.'},
             {v:'Q', s:'♦', t:'Eventos',  d:'Una fiesta única e inolvidable, con juegos de salón.'} ]
 };
@@ -193,13 +193,15 @@ const cara = (v, s) => `<i>${v}<br>${s}</i><b>${s}</b><i class="bt">${v}<br>${s}
 document.querySelectorAll('[data-ig]').forEach(a => { a.href = CFG.ig; a.target = '_blank'; a.rel = 'noopener'; });
 $('igUser').textContent = CFG.usuario; $('igBig').textContent = 'Seguime en Instagram ' + CFG.usuario;
 
-// abanico de cartas (escalera real de picas)
+// abanico de cartas (limpio sin texto de "Tu foto")
 const paso = innerWidth < 761 ? 10 : 12;
 $('fan').innerHTML = ['8','9','10','J','Q','K','A'].map((v, i) =>
   `<div class="pk" style="--i:${i};--r:${(i - 3) * paso}deg;--z:${i * 3}px">${cara(v, '♠')}</div>`).join('') +
-  `<div class="me" style="--pos:${CFG.retratoPos}"><div class="mi"><div><https://github.com/nexowebsites/HernanMagia/blob/main/CA52A806-8547-4A20-97E3-64915D7D256E.jpg?raw=true</div><img src="${CFG.retrato}" alt="Hernán Pizarro, mago" onerror="this.remove()"></div><span class="rb">22 años de magia</span></div>`;
-// fotos
-$('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div><em>♠</em>Tu foto acá</div><img src="${f.src}" alt="${f.cap} - Hernán Pizarro, mago" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
+  `<div class="me" style="--pos:${CFG.retratoPos}"><div class="mi"><div></div><img src="${CFG.retrato}" alt="Hernán Pizarro, mago" onerror="this.remove()"></div><span class="rb">22 años de magia</span></div>`;
+
+// fotos de la galería (ajustado exactamente a tus 2 fotos)
+$('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div></div><img src="${f.src}" alt="${f.cap} - Hernán Pizarro, mago" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
+
 // cartas para elegir
 $('deck').innerHTML = CFG.cartas.map((c, i) => `<div class="fl rv ${rojo(c.s)}" style="--d:${i * .15}s" tabindex="0" role="button" aria-label="Carta ${c.t}"><div class="in"><div class="bk"><span>♠</span></div><div class="fr">${cara(c.v, c.s)}<h3>${c.t}</h3><p>${c.d}</p></div></div></div>`).join('');
 
