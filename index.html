@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b0614">
-<title>Hernán Pizarro · Mago</title>
-<meta name="description" content="Hernán Pizarro: mago hace 22 años. Shows para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo.">
+<meta name="google-site-verification" content="g5CY5VpeJRJnF1_6JyOkbtLkdNiP0JkrKrx6UPcD9oY" />
+<title>Hernán Pizarro · Mago | Cartomagia, Mentalismo y Shows</title>
+<meta name="description" content="Hernán Pizarro, mago hace 22 años. Shows de magia para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo para tu fiesta o evento.">
+<meta name="keywords" content="mago, magia, show de magia, mago para fiestas, mago para eventos, mago para chicos, mago para adultos, cartomagia, mentalismo, juegos de salón, stand up, ilusionista, Hernán Pizarro, hernan.magia">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Hernán Pizarro · Mago | Cartomagia, Mentalismo y Shows">
+<meta property="og:description" content="Mago hace 22 años. Shows para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cuando tengas la dirección final, descomentá y completá estas dos líneas (y agregá og:image con una foto de 1200x630):
+<link rel="canonical" href="https://TU-DIRECCION/">
+<meta property="og:url" content="https://TU-DIRECCION/"> -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Hernán Pizarro", "jobTitle": "Mago", "description": "Mago hace 22 años. Shows para adultos y chicos con mucho humor, juegos de salón, cartomagia y mentalismo.", "knowsAbout": ["Magia", "Cartomagia", "Mentalismo", "Juegos de salón", "Stand up"], "sameAs": ["https://www.instagram.com/hernan.magia/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -90,6 +101,14 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-conte
 .fr p{font-size:7.4cqw;line-height:1.35;margin-top:3cqw;color:#3b2a52}
 .tip{color:var(--gris);font-size:14px}
 
+.faq{max-width:760px;margin:30px auto 0;text-align:left}
+.faq details{border:1px solid rgba(232,193,90,.35);border-radius:14px;background:rgba(255,255,255,.04);margin-bottom:12px;padding:0 18px}
+.faq details[open]{background:rgba(232,193,90,.09)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 30px 16px 0;font-weight:600;color:var(--oro2);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"♠";position:absolute;right:0;top:50%;transform:translateY(-50%);color:var(--oro);transition:transform .4s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(180deg)}
+.faq p{padding:0 0 16px;color:var(--gris)}.faq a{color:var(--oro)}
 .cta{padding-bottom:30px}
 .cta h2{margin-bottom:24px}
 footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px}
@@ -115,7 +134,7 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
   <div class="ht">
     <p class="kick">Mago · Cartomagia · Mentalismo</p>
     <h1 class="gold">Hernán<br>Pizarro</h1>
-    <p class="lead" id="lema"></p>
+    <p class="lead" id="lema">Quiero que disfrutes la magia como lo hago yo.</p>
     <div class="btns"><a class="btn" href="#cartas">Elegí una carta</a><a class="btn ghost" data-ig id="igUser"></a></div>
   </div>
   <div class="fanw"><div class="fan" id="fan"></div><p class="hint">Mové el mouse o deslizá el dedo ✦</p></div>
@@ -123,7 +142,7 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
 
 <section class="sec" id="sobre">
   <h2 class="gold rv">Sobre Hernán</h2>
-  <p class="desc rv" id="desc"></p>
+  <p class="desc rv" id="desc">Soy mago hace 22 años. Hago shows para adultos y para chicos, con mucho humor, y mi idea es que tu fiesta sea única e inolvidable, con juegos de salón, cartomagia y mentalismo.</p>
   <div class="stats rv">
     <div><b id="anios">22</b><span>años de magia</span></div>
     <div><b>Adultos<br>y chicos</b><span>shows para todos</span></div>
@@ -139,8 +158,18 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
   <div class="deck" id="deck"></div>
 </section>
 
+<section class="sec" id="preguntas">
+  <h2 class="gold rv">Preguntas frecuentes</h2>
+  <div class="faq">
+    <details class="rv"><summary>¿Qué hace Hernán Pizarro?</summary><p>Es mago hace 22 años. Hace shows de magia con mucho humor, juegos de salón, cartomagia y mentalismo, y también stand up.</p></details>
+    <details class="rv"><summary>¿Hace shows de magia para chicos y para adultos?</summary><p>Sí. Los shows están pensados tanto para adultos como para chicos, siempre con humor, para que toda la fiesta se divierta.</p></details>
+    <details class="rv"><summary>¿Qué son la cartomagia y el mentalismo?</summary><p>La cartomagia es la magia hecha con cartas de póker o naipes. El mentalismo son efectos que parecen adivinar lo que pensás. Con los juegos de salón, forman un show para que la fiesta sea única e inolvidable.</p></details>
+    <details class="rv"><summary>¿Cómo contrato un mago para mi fiesta o evento?</summary><p>Escribile por Instagram a <a href="https://www.instagram.com/hernan.magia/" target="_blank" rel="noopener">@hernan.magia</a> y coordinan tu show.</p></details>
+  </div>
+</section>
+
 <section class="sec cta">
-  <h2 class="gold rv">¿Listo para ver magia de cerca?</h2>
+  <h2 class="gold rv">¿Listo para llevar la magia a tu fiesta?</h2>
   <a class="btn big rv" data-ig id="igBig"></a>
 </section>
 </main>
@@ -151,9 +180,7 @@ footer{text-align:center;color:var(--gris);font-size:13px;padding:50px 20px 36px
 const CFG = {
   ig: 'https://www.instagram.com/hernan.magia/', usuario: '@hernan.magia',
   retrato: 'hernan.jpg', retratoPos: '50% 22%',   // foto de Hernán para el inicio (si la cara queda cortada, cambiá el segundo valor: 0% = arriba, 50% = centro)
-  lema: 'Quiero que disfrutes la magia como lo hago yo.',
-  desc: 'Soy mago hace 22 años. Hago shows para adultos y para chicos, con mucho humor, y mi idea es que tu fiesta sea única e inolvidable, con juegos de salón, cartomagia y mentalismo.',
-  fotos: [ {src:'foto1.jpg', cap:'Magia de cerca'}, {src:'foto2.jpg', cap:'Stand up'}, {src:'foto3.jpg', cap:'Eventos'} ],   // poné tus 3 fotos con estos nombres
+  fotos: [ {src:'foto1.jpg', cap:'Cartomagia'}, {src:'foto2.jpg', cap:'Stand up'}, {src:'foto3.jpg', cap:'Fiestas y eventos'} ],   // poné tus 3 fotos con estos nombres
   cartas: [ {v:'A', s:'♠', t:'Magia',    d:'Cartomagia y mentalismo que no vas a poder explicar.'},
             {v:'K', s:'♥', t:'Stand up', d:'Mucho humor para que todos se rían.'},
             {v:'Q', s:'♦', t:'Eventos',  d:'Una fiesta única e inolvidable, con juegos de salón.'} ]
@@ -163,7 +190,6 @@ const rojo = s => (s === '♥' || s === '♦') ? 'red' : '';
 const cara = (v, s) => `<i>${v}<br>${s}</i><b>${s}</b><i class="bt">${v}<br>${s}</i>`;
 document.querySelectorAll('[data-ig]').forEach(a => { a.href = CFG.ig; a.target = '_blank'; a.rel = 'noopener'; });
 $('igUser').textContent = CFG.usuario; $('igBig').textContent = 'Seguime en Instagram ' + CFG.usuario;
-$('lema').textContent = CFG.lema; $('desc').textContent = CFG.desc;
 
 // abanico de cartas (escalera real de picas)
 const paso = innerWidth < 761 ? 10 : 12;
@@ -171,7 +197,7 @@ $('fan').innerHTML = ['8','9','10','J','Q','K','A'].map((v, i) =>
   `<div class="pk" style="--i:${i};--r:${(i - 3) * paso}deg;--z:${i * 3}px">${cara(v, '♠')}</div>`).join('') +
   `<div class="me" style="--pos:${CFG.retratoPos}"><div class="mi"><div><em>♠</em>Tu foto</div><img src="${CFG.retrato}" alt="Hernán Pizarro, mago" onerror="this.remove()"></div><span class="rb">22 años de magia</span></div>`;
 // fotos
-$('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div><em>♠</em>Tu foto acá</div><img src="${f.src}" alt="${f.cap}" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
+$('gal').innerHTML = CFG.fotos.map((f, i) => `<div class="gi rv" style="--d:${i * .15}s"><div class="ph tilt"><div class="pi"><div><em>♠</em>Tu foto acá</div><img src="${f.src}" alt="${f.cap} - Hernán Pizarro, mago" onerror="this.remove()"></div></div><p class="cap">${f.cap}</p></div>`).join('');
 // cartas para elegir
 $('deck').innerHTML = CFG.cartas.map((c, i) => `<div class="fl rv ${rojo(c.s)}" style="--d:${i * .15}s" tabindex="0" role="button" aria-label="Carta ${c.t}"><div class="in"><div class="bk"><span>♠</span></div><div class="fr">${cara(c.v, c.s)}<h3>${c.t}</h3><p>${c.d}</p></div></div></div>`).join('');
 
